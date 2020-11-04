@@ -1,2 +1,4 @@
 # alfa20
-It is game project based on lua with love2d game engine. I have created this project because my son asked me to create a game for him
+coming soon....
+
+It is a text based adventure game by python. I have created this project because my son asked me to create a game for him but I want to learn python :-) also.
