@@ -1,0 +1,169 @@
+{
+    "title": "Wizborak World",
+    "player1":{
+        "name":"Raj",
+        "health":10,
+        "items":110
+    },
+    "splash_scene": {
+        "name": "splash",
+        "scene_type": "simple",
+        "game_play_texts": ["Do you want to play?"],
+        "choices": [
+            "1. Yes",
+            "2. No"
+        ],
+        "hint": "Type Yes or No",
+        "next_scenes": {
+            "choice_yes": {
+                "name": "wizard_intro"
+            },
+            "choice_no": {
+                "name": "exit"
+            }
+        }
+    },
+    "wizard_intro_scene": {
+        "name": "wizard_intro",
+        "scene_type": "simple",
+        "game_play_texts": [
+            "You are lost. You have arrived the word of magic.",
+            "If you want to go home, you have to play few puzzle games to buy necessary items.",
+            "Such as apples, rope, ladder, water. In the end you have to take the key from the",
+            "fire breathing Dragon to return your world."
+        ],
+        "choices": [
+            "1. Yes",
+            "2. No"
+        ],
+        "hint": "Type Yes or No",
+        "next_scenes": {
+            "choice_yes": {
+                "name": "market_place"
+            },
+            "choice_no": {
+                "name": "dead_in_desert"
+            }
+        }
+    },
+
+    "market_place_scene": {
+        "name": "market_place",
+        "scene_type": "simple",
+        "game_play_texts": [
+            "You are in front of the market place. ",
+            "There is three shops:",
+            "1. Apple store to buy apple, pie and sauce",
+            "2. Cheese store to buy cheese and water",
+            "3. Hardware store to buy rope, ladder and metal sheet",
+            "",
+            "Select one of the shops or you can visit each store one by one. Remember, store provides you items to survive in this world.",
+            ""
+        ],
+        "choices": [
+            "1. Apple store",
+            "2. Cheese store",
+            "3. Hardware store"
+        ],
+        "hint": "Type 1, 2, or 3",
+        "next_scenes": {
+            "choice_1": {
+                "name": "apple_store"
+            },
+            "choice_2": {
+                "name": "cheese_store"
+            },            
+            "choice_3": {
+                "name": "hardware_store"
+            }
+        }
+    },
+
+    "apple_store_scene": {
+        "name": "apple_store",
+        "scene_type": "complex",
+        "scene_desc": [
+                          "You are in front of the Apple store. A number of people in front of the shop. Shopkeeper is busy with them ",
+                          "Slowly people are leaving the place."
+        ],
+        "game_plays":[
+            {
+                "choices":[
+                    "1. Leave the store",
+                    "2. Want to talk with apple store owner"
+                ],
+                "hint":"Type 1 or 2",
+                "next_scene":{
+                    "choices_1":{
+                        "name":"market_place_scene"
+                    },
+                    "choices_2":{
+                        "name":"next"
+                    }
+                }
+            },
+            {
+                "characters":["apple_store_owner"],
+                "apple_store_owner_dialouge":{ 
+                   "dialouge":"How can I help you?",
+                   "choices":[
+                       "1. Leave the store",
+                       "2. Want to buy apples"
+                   ],
+                   "hint":"Type 1 or 2",
+                   "next_scene":{
+                       "choices_1":{
+                           "name":"market_place_scene"
+                       },
+                       "choices_2":{
+                           "name":"next"
+                       }
+                   }
+                }
+            },  
+            {
+                "characters":["apple_store_owner"],
+                "apple_store_owner_dialouge":{ 
+                    "dialouge":"Good. I have the best apples. I can give 40 apples but if you solve a math question for me?",
+                    "choices":[
+                        "1. Leave the store",
+                        "2. Solve math question"
+                    ],
+                    "hint":"Type 1 or 2",
+                    "next_scene":{
+                        "choices_1":{
+                            "name":"market_place_scene"
+                        },
+                        "choices_2":{
+                            "name":"next"
+                        }
+                    }
+                }
+            }, 
+            {
+                "characters":["apple_store_owner"],
+                "apple_store_owner_dialouge":{
+                    "dialouge":"If you had 10 apples yesterday. In the afternoon you ate 4 apples. How many do you have now?",
+                    "choices":[
+                        "1. 8 apples",
+                        "2. 14 apples",
+                        "3. 6 apples"
+                    ],
+                    "hint":"Type 1 or 2 or 3",
+                    "answer":6,
+                    "correct_ans":{
+                        "apple_store_owner":"Good job. Here is 40 apples.",
+                        "next_scene":"market_place_scene"
+                    },
+                    "failed_ans":{
+                        "apple_store_owner":"Sorry. You have to try again. You will lose 2 points",
+                        "health_point_deduct":2,
+                        "next_scene":"repeat"
+                    }
+                }
+            }          
+        ]
+    }
+
+    
+}
